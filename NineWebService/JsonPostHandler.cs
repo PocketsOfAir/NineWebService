@@ -24,6 +24,7 @@ namespace NineWebService
 
 		public void ProcessRequest(HttpContext context)
 		{
+			context.Response.ContentType = "application/json";
 			if (context.Request.HttpMethod == null || context.Request.HttpMethod.ToUpper() != "POST")
 			{
 				context.Response.StatusCode = 400;

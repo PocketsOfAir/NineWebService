@@ -6,14 +6,6 @@ namespace NineWebService
 {
 	public class JsonPostHandler : IHttpHandler
 	{
-		private const string _DefaultPage = 
-			@"<html>
-				<head>
-					<title>Error 400: Bad Request</title>
-				</head>
-				<body>Error 400: Bad Request - This webpage is intended to respond to requests using the POST method only.</body>
-			</html>";
-
 		public bool IsReusable
 		{
 			get
@@ -28,7 +20,9 @@ namespace NineWebService
 			if (context.Request.HttpMethod == null || context.Request.HttpMethod.ToUpper() != "POST")
 			{
 				context.Response.StatusCode = 400;
-				context.Response.Write(_DefaultPage);
+				ErrorStructure error = new ErrorStructure(ErrorStructure.ErrorTypes.NoContentError);
+				JsonParser._Settings.Formatting = Formatting.Indented;
+				context.Response.Write(JsonConvert.SerializeObject(error));
 				return;
 			}
 

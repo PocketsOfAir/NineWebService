@@ -23,7 +23,6 @@ namespace NineWebService
 				ErrorStructure error = new ErrorStructure(ErrorStructure.ErrorTypes.NoContentError);
 				JsonParser._Settings.Formatting = Formatting.Indented;
 				context.Response.Write(JsonConvert.SerializeObject(error));
-				context.Response.Close();
 				return;
 			}
 
@@ -33,7 +32,6 @@ namespace NineWebService
 				ErrorStructure error = new ErrorStructure(ErrorStructure.ErrorTypes.NoContentError);
 				JsonParser._Settings.Formatting = Formatting.Indented;
 				context.Response.Write(JsonConvert.SerializeObject(error));
-				context.Response.Close();
 				return;
 			}
 
@@ -47,11 +45,9 @@ namespace NineWebService
 			{
 				context.Response.StatusDescription = "HTTP_STATUS_BAD_REQUEST";
 				context.Response.Write(responseString);
-				context.Response.Close();
 				return;
 			}
 			context.Response.Write(responseString);
-			context.Response.Close();
 		}
 	}
 }

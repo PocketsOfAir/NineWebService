@@ -1,0 +1,25 @@
+﻿{
+    "payload": [
+        {
+            "country": "UK",
+            "description": "Short Description",
+            "drm": true,
+            "episodeCount": 3,
+            "genre": "Reality",
+            "image": {
+                "showImage": "http://mybeautifulcatchupservice.com/img/shows/16KidsandCounting1280.jpg"
+            },
+            "language": "English",
+            "nextEpisode": null,
+            "primaryColour": "#ff7800",
+            "seasons": [
+                {
+                    "slug": "show/16kidsandcounting/season/1"
+                }
+            ],
+            "slug": "show/16kidsandcounting",
+            "title": "16 Kids and Counting",
+            "tvChannel": "GEM"
+        }
+    ]
+}

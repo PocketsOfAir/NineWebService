@@ -19,7 +19,7 @@ namespace NineWebService
 			catch (JsonReaderException)
 			{
 				ErrorStructure error = new ErrorStructure(ErrorStructure.ErrorTypes.FailedParseError);
-				JsonParser._Settings.Formatting = Formatting.Indented;
+				_Settings.Formatting = Formatting.Indented;
 				output = JsonConvert.SerializeObject(error);
 				return false;
 			}

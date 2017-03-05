@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿/*using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
 using System;
 using Newtonsoft.Json;
@@ -90,4 +90,4 @@ namespace NineWebService.Tests
 			Assert.AreEqual(expectedError.error, receivedError.error);
 		}
 	}
-}
+}*/

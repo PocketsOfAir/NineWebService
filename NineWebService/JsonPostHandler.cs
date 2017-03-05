@@ -19,6 +19,7 @@ namespace NineWebService
 			context.Response.ContentType = "application/json";
 			if (context.Request.HttpMethod == null || context.Request.HttpMethod.ToUpper() != "POST")
 			{
+				context.Response.TrySkipIisCustomErrors = true;
 				context.Response.StatusCode = 400;
 				context.Response.StatusDescription = "HTTP_STATUS_BAD_REQUEST";
 				ErrorStructure error = new ErrorStructure(ErrorStructure.ErrorTypes.NoContentError);
@@ -29,6 +30,7 @@ namespace NineWebService
 
 			if (context.Request.InputStream == null)
 			{
+				context.Response.TrySkipIisCustomErrors = true;
 				context.Response.StatusCode = 400;
 				context.Response.StatusDescription = "HTTP_STATUS_BAD_REQUEST";
 				ErrorStructure error = new ErrorStructure(ErrorStructure.ErrorTypes.NoContentError);
@@ -45,6 +47,7 @@ namespace NineWebService
 
 			if (!JsonParser.TryParseRequest(requestString, out responseString))
 			{
+				context.Response.TrySkipIisCustomErrors = true;
 				context.Response.StatusCode = 400;
 				context.Response.StatusDescription = "HTTP_STATUS_BAD_REQUEST";
 				context.Response.Write(responseString);

@@ -19,7 +19,7 @@ namespace NineWebService
 			context.Response.ContentType = "application/json";
 			if (context.Request.HttpMethod == null || context.Request.HttpMethod.ToUpper() != "POST")
 			{
-				context.Response.Status = "400";
+				//context.Response.Status = "400";
 				ErrorStructure error = new ErrorStructure(ErrorStructure.ErrorTypes.NoContentError);
 				JsonParser._Settings.Formatting = Formatting.Indented;
 				context.Response.Write(JsonConvert.SerializeObject(error));
@@ -28,7 +28,7 @@ namespace NineWebService
 
 			if (context.Request.InputStream == null)
 			{
-				context.Response.Status = "400";
+				//context.Response.Status = "400";
 				ErrorStructure error = new ErrorStructure(ErrorStructure.ErrorTypes.NoContentError);
 				JsonParser._Settings.Formatting = Formatting.Indented;
 				context.Response.Write(JsonConvert.SerializeObject(error));
@@ -43,7 +43,7 @@ namespace NineWebService
 
 			if (!JsonParser.TryParseRequest(requestString, out responseString))
 			{
-				context.Response.Status = "400";
+				//context.Response.Status = "400";
 				context.Response.Write(responseString);
 				return;
 			}
